@@ -5,16 +5,14 @@ import Category from './Category/Category';
 const CategoryData= createContext();
 function Dashboard(){
     const [category, setCategory]= useState('General');
-    const list=['General', 'Entertainment','Sports','Health','Science']
     const handleClick=(newCategory)=>{
         setCategory(newCategory)
     }
-    
-
     return(
         <>
         <CategoryData.Provider value={category}>
         <Category handleClick= {handleClick}/>
+        <br/>
         <Card />
         </CategoryData.Provider>
         </>

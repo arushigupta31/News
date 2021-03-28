@@ -3,7 +3,6 @@ import {CategoryData} from '../Dashboard';
 
 const Category = (props) => {
     const cData= useContext(CategoryData);
-    console.log(cData)
     const list=['General', 'Entertainment','Sports','Health','Science']
     const handleClick=(e)=>{
         props.handleClick(e.target.name)
@@ -14,13 +13,11 @@ const Category = (props) => {
         <div className="spaceHeader">
         {list.map((item)=>(
             <ul className="headerNames">
-                <button className="headerList" name={item} onClick={handleClick}>{item}</button>
+                <button className={cData===item?"selectedName":"headerList"} 
+                name={item} onClick={handleClick}>{item.toUpperCase()}</button>
             </ul>
         ))}
         </div>
-        
-        
-        
         </>
     )
 }
